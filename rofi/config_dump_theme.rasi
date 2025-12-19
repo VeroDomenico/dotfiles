@@ -1,0 +1,103 @@
+/**
+ * rofi -dump-theme output.
+ * Rofi version: 1.7.8+wayland1-dev
+ **/
+* {
+    background-color: transparent;
+    text-color:       White;
+}
+window {
+    fullscreen:       true;
+    background-color: Black/80%;
+    padding:          4.0000em ;
+    spacing:          1.0000em ;
+    children:         [ "wrap","listview-split" ];
+}
+listview-split {
+    orientation: horizontal;
+    spacing:     0.4000em ;
+    children:    [ "listview" ];
+}
+wrap {
+    orientation:      vertical;
+    children:         [ "inputbar","message" ];
+    expand:           false;
+    border-color:     LightBlue;
+    background-image: linear-gradient ( White/5%, White/40%);
+    border:           3px ;
+    border-radius:    0.4000em ;
+}
+icon-ib {
+    filename:         "system-search";
+    expand:           false;
+    vertical-align:   0.50;
+    size:             1.0000em ;
+    horizontal-align: 0.50;
+}
+inputbar {
+    padding:  0.4000em ;
+    spacing:  0.4000em ;
+    children: [ "icon-ib","entry" ];
+}
+entry {
+    placeholder:       "Search";
+    placeholder-color: Gray;
+}
+message {
+    padding:          0.4000em ;
+    background-color: Red/20%;
+    border-color:     LightSalmon;
+    spacing:          0.4000em ;
+    border:           3px 0px 0px ;
+}
+listview {
+    flow:          horizontal;
+    fixed-columns: true;
+    columns:       7;
+    lines:         5;
+    spacing:       1.0000em ;
+}
+element {
+    orientation:      vertical;
+    padding:          0.1000em ;
+    border:           3px ;
+    border-color:     LightBlue/15%;
+    background-image: linear-gradient ( White/5%, White/20%);
+    border-radius:    0.4000em ;
+    children:         [ "element-icon","element-text" ];
+}
+element selected {
+    border-color:     LightBlue;
+    background-image: linear-gradient ( White/25%, White/10%);
+    border:           3px ;
+    border-radius:    0.4000em ;
+}
+element-icon {
+    size:             calc( ( ( ( 100.0000%  - 8.0000em  ) / 7px  ) ));
+    vertical-align:   0.50;
+    horizontal-align: 0.50;
+}
+element-text {
+    padding:          0.2000em ;
+    vertical-align:   0.50;
+    horizontal-align: 0.50;
+}
+@media ( enabled: false ) {
+    icon-current-entry {
+        size:   80.0000% ;
+        expand: true;
+    }
+    listview-split {
+        children: [ "listview","icon-current-entry" ];
+    }
+    listview {
+        columns: 1;
+        spacing: 0.4000em ;
+    }
+    element {
+        children: [ "element-text" ];
+    }
+    element-text {
+        horizontal-align: 0.00;
+    }
+}

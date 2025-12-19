@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# But keep these (examples)
+!.gitignore
+!README.md
+!hypr
+!hypr/**
+!ghostty
+!ghostty/**
+!nvim
+!nvim/**
+!rofi
+!rofi/**
+!waybar
+!waybar/**
