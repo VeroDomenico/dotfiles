@@ -1,4 +1,4 @@
-/* Palette 2, GTK CSS friendly */
+/* Palette 2 - GTK3 Optimized */
 @define-color navy     #0B1F3B;
 @define-color emerald  #0E8F6E;
 @define-color forest   #0F3D2E;
@@ -7,105 +7,107 @@
 @define-color white    #F7F9FC;
 @define-color wood     #3B2F2A;
 
-/* Global */
+/* Global Reset */
 * {
   border: none;
-  min-height: 0;
+  border-radius: 0;
+  font-family: "Inter", "Source Sans Pro", sans-serif;
   font-size: 13px;
+  min-height: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Top Bar Surface --- */
+window#waybar.top {
+  background-color: alpha(@navy, 0.75);
+  border: 1px solid alpha(@wood, 0.4);
   color: @white;
 }
 
-/* The bar surface */
-window#waybar.top {
-  background-color: alpha(@navy, 0.65);
-  border: 1px solid alpha(@wood, 0.75);
-  border-radius: 18px;
-  padding: 0;
-}
-window#waybar.bottom {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-/* Common pill style helper */
-#taskbar,
-#window {
-  background-color: alpha(@navy, 0.75);
-  border: 1px solid alpha(@wood, 0.7);
-  border-radius: 999px;
-  padding: 6px 10px;
+/* Common Pill styling for Top Modules */
+#workspaces,
+#window,
+#tray,
+#network,
+#pulseaudio,
+#clock {
+  background-color: alpha(@forest, 0.45);
+  border: 1px solid alpha(@white, 0.05);
+  border-radius: 10px;
+  margin: 4px 2px;
+  padding: 0 10px;
 }
 
-/* Center title, “secondary” forest tone */
-#window {
-  background-color: alpha(@forest, 0.55);
-  padding: 6px 14px;
-}
-
-/* Workspaces */
+/* Workspace Buttons */
 #workspaces button {
-  border-radius: 999px;
-  padding: 4px 10px;
-  margin: 0 4px;
-  background-color: transparent;
-  border: 1px solid transparent;
+  color: alpha(@white, 0.4);
 }
 
 #workspaces button.active {
-  background-color: alpha(@emerald, 0.28);
-  border: 1px solid alpha(@emerald, 0.7);
+  color: @white;
+  background-color: alpha(@emerald, 0.3);
+  border-bottom: 2px solid @emerald;
 }
 
 #workspaces button.urgent {
-  background-color: alpha(@burgundy, 0.55);
-  border: 1px solid alpha(@burgundy, 0.85);
+  background-color: alpha(@burgundy, 0.8);
+  color: @white;
 }
 
-/* Hover feedback, gold tint mixed into navy */
-#workspaces button:hover,
-#taskbar button:hover,
-#custom-launcher:hover,
-#clock:hover,
-#network:hover,
-#pulseaudio:hover,
-#tray:hover {
-  background-color: mix(alpha(@gold, 0.35), alpha(@navy, 0.75), 0.35);
+/* --- Bottom Dock Surface --- */
+window#waybar.bottom {
+  background-color: transparent;
 }
 
-/* Dock vibe */
+/* The Dock Container */
 #taskbar {
-  padding: 12px 16px;
+  background-color: alpha(@navy, 0.9);
+  border: 1px solid alpha(@wood, 0.7);
+  border-radius: 24px;
+  padding: 4px 12px;
 }
 
 #taskbar button {
-  border-radius: 16px;
-  padding: 8px 12px;
-  margin: 0 8px;
-  background-color: alpha(@white, 0.06);
-  border: 1px solid alpha(@wood, 0.55);
+  margin: 0 6px;
+  border-radius: 14px;
+  background-color: alpha(@white, 0.05);
 }
 
 #taskbar button.active {
-  background-color: alpha(@emerald, 0.22);
-  border: 1px solid alpha(@emerald, 0.8);
+  background-color: alpha(@emerald, 0.2);
+  border-bottom: 3px solid @emerald;
 }
 
-/* Launcher glyph is a font icon, size it here */
+#taskbar button:hover {
+  background-color: alpha(@gold, 0.3);
+  /* GTK3 subtle hover effect */
+  border-top: 1px solid alpha(@gold, 0.5);
+}
+
+/* Launcher Module */
 #custom-launcher {
-  font-size: 22px;
-  padding: 6px 14px;
+  background-color: @emerald;
+  color: @navy;
+  border-radius: 16px;
+  padding: 0 16px;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Clock on bottom dock */
+#clock.bottom {
+  background-color: alpha(@wood, 0.4);
+  border-radius: 16px;
+  margin-left: 10px;
 }
 
 /* Tooltips */
 tooltip {
-  background-color: transparent;
-  border: none;
+  background-color: alpha(@navy, 0.95);
+  border: 1px solid @wood;
+  border-radius: 10px;
 }
 tooltip label {
-  background-color: alpha(@navy, 0.92);
-  border: 1px solid alpha(@wood, 0.75);
-  border-radius: 12px;
-  padding: 8px 10px;
   color: @white;
+  padding: 6px;
 }
