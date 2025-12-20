@@ -1,415 +1,111 @@
-/* === VARIABLES === */
+/* Palette 2, GTK CSS friendly */
+@define-color navy     #0B1F3B;
+@define-color emerald  #0E8F6E;
+@define-color forest   #0F3D2E;
+@define-color gold     #D4A017;
+@define-color burgundy #5A1A2B;
+@define-color white    #F7F9FC;
+@define-color wood     #3B2F2A;
 
-@define-color no0 #030408;
-@define-color no1 #05070D;
-@define-color no2 #0A0E1A;
-
-@define-color re0 #F24848;
-@define-color re1 #631F21;
-@define-color re2 #331215;
-
-@define-color gr0 #30F291;
-@define-color gr1 #15633F;
-@define-color gr2 #0C3423;
-
-@define-color ye0 #F2D230;
-@define-color ye1 #635618;
-@define-color ye2 #332D10;
-
-@define-color bl0 #3061F2;
-@define-color bl1 #152966;
-@define-color bl2 #0C1737;
-
-@define-color pu0 #A130F2;
-@define-color pu1 #421666;
-@define-color pu2 #230D37;
-
-@define-color cy0 #29BECC;
-@define-color cy1 #124E56;
-@define-color cy2 #0B292F;
-
-@define-color wh0 #898D99;
-@define-color wh1 #393B42;
-@define-color wh2 #1E2025;
-
-@define-color me0 #4D5A80;
-@define-color me1 #212638;
-@define-color me2 #0D1120;
-
-@define-color or0 #F23D18;
-@define-color or1 #631B0E;
-@define-color or2 #330F0B;
-
-
-/* === GLOBAL === */
-
+/* Global */
 * {
-	font-family: GeistMono Nerd Font;
-	font-size: 15px;
-	letter-spacing: -0.05em;
-	font-weight: 400;
-	min-height: 0;
+  border: none;
+  min-height: 0;
+  font-size: 13px;
+  color: @white;
 }
 
-window#waybar {
-	background: transparent;
-	opacity: 1;
+/* The bar surface */
+window#waybar.top {
+  background-color: alpha(@navy, 0.65);
+  border: 1px solid alpha(@wood, 0.75);
+  border-radius: 18px;
+  padding: 0;
+}
+window#waybar.bottom {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-window#waybar.hidden {
-	opacity: 0;
-}
-
-
-/* === MODULE DEFAULTS === */
-
-#custom-updates,
-#custom-music,
-#custom-arch,
-#workspaces,
+/* Common pill style helper */
+#taskbar,
 #window {
-	background-color: transparent;
-	border: none;
-	border-radius: 0;
-	padding: 0 16px;
-	color: @re0;
+  background-color: alpha(@navy, 0.75);
+  border: 1px solid alpha(@wood, 0.7);
+  border-radius: 999px;
+  padding: 6px 10px;
 }
 
-
-/* === BUTTON SIZE === */
-
-#tray,
-#custom-brightness,
-#language,
-#bluetooth,
-#custom-gpu-usage,
-#custom-wf-recorder,
-#custom-cava,
-#custom-updates,
-#custom-notifications,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#temperature,
-#temperature.cpu,
-#temperature.gpu,
-#battery,
-#backlight {
-	padding: 0 16px;
-	min-width: 15px;
+/* Center title, “secondary” forest tone */
+#window {
+  background-color: alpha(@forest, 0.55);
+  padding: 6px 14px;
 }
 
-
-/* === POWERLINE ARROWS === */
-
-#custom-arrow-left-no1 {
-	background-image: url('/home/sch/.config/waybar/svg/no1-left.svg');
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
-#custom-arrow-right-no1 {
-	background-image: url('/home/sch/.config/waybar/svg/no1-right.svg');
-	background-position: right;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
-#custom-arrow-left-re0 {
-	background-image: url('/home/sch/.config/waybar/svg/re0-left.svg');
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: @no1;
-}
-
-#custom-arrow-right-re0 {
-	background-image: url('/home/sch/.config/waybar/svg/re0-right.svg');
-	background-position: right;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: @no1;
-}
-
-#custom-arrow-left-gr0 {
-	background-image: url('/home/sch/.config/waybar/svg/gr0-left.svg');
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: @no1;
-}
-
-#custom-arrow-right-gr0 {
-	background-image: url('/home/sch/.config/waybar/svg/gr0-right.svg');
-	background-position: right;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-color: @no1;
-}
-
-
-/* === ARCH LOGO === */
-
-#custom-arch {
-	color: @no0;
-	background-color: @re0;
-	font-weight: bold;
-}
-
-#custom-arch:hover {
-	color: @no0;
-	background-color: @gr0;
-}
-
-
-/* === WORKSPACES === */
-
-#workspaces {
-	background-color: @no1;
-	border: none;
-}
-
+/* Workspaces */
 #workspaces button {
-	border-radius: 0;
-	margin: 0;
-	font-weight: bolder;
-	min-width: 15px;
-	color: @re0;
-	background: transparent;
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin: 0 4px;
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
-#workspaces button label {
-	font-size: 15px;
-	margin: -10px 0px;
-	padding: 0 4px;
-	color: @re0;
-}
-
-#workspaces button.active label {
-	color: @gr0;
-}
-
-#workspaces button:hover {
-	background-color: @re2;
-}
-
-#workspaces button:hover label {
-	color: @re0;
-}
-
-#workspaces button.active:hover {
-	background-color: @gr2;
-}
-
-#workspaces button.active label {
-	color: @gr0;
+#workspaces button.active {
+  background-color: alpha(@emerald, 0.28);
+  border: 1px solid alpha(@emerald, 0.7);
 }
 
 #workspaces button.urgent {
-	background-color: @ye0;
+  background-color: alpha(@burgundy, 0.55);
+  border: 1px solid alpha(@burgundy, 0.85);
 }
 
-#workspaces button.urgent label {
-	color: @ye2;
-}
-
-
-/* === CLOCKS === */
-
-#clock.time,
-#clock.date {
-	color: @re0;
-	background-color: @no1;
-	padding: 0 32px;
-}
-
-#clock.time:hover,
-#clock.date:hover {
-	color: @re0;
-	background-color: @re2;
-}
-
-
-/* === SYSTEM METRICS === */
-
-#cpu,
-#memory,
-#temperature,
-#temperature.cpu,
-#temperature.gpu {
-	color: @re0;
-	background-color: @no1;
-}
-
-#temperature.critical {
-	color: @no0;
-	background-color: @ye0;
-}
-
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#temperature.cpu:hover,
-#temperature.gpu:hover,
-#temperature.critical:hover {
-	color: @re0;
-	background-color: @re2;
-}
-
-
-/* === NETWORK & AUDIO === */
-
-#network {
-	background-color: @no1;
-	color: @re0;
-}
-
-#network.disconnected {
-	color: @wh0;
-	background-color: @or0;
-}
-
-#network.linked {
-	color: @gr0;
-	background-color: @no1;
-}
-
-#pulseaudio {
-	color: @re0;
-	background-color: @no1;
-}
-
-#pulseaudio.muted {
-	color: @re1;
-}
-
+/* Hover feedback, gold tint mixed into navy */
+#workspaces button:hover,
+#taskbar button:hover,
+#custom-launcher:hover,
+#clock:hover,
 #network:hover,
-#pulseaudio:hover {
-	color: @re0;
-	background-color: @re2;
+#pulseaudio:hover,
+#tray:hover {
+  background-color: mix(alpha(@gold, 0.35), alpha(@navy, 0.75), 0.35);
 }
 
-#pulseaudio.muted:hover {
-	color: @re1;
-	background-color: @re2;
+/* Dock vibe */
+#taskbar {
+  padding: 12px 16px;
 }
 
-
-/* === MUSIC === */
-
-#custom-music {
-	background-color: @gr0;
-	color: @no0;
-	padding: 0 32px;
-	border: none;
+#taskbar button {
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin: 0 8px;
+  background-color: alpha(@white, 0.06);
+  border: 1px solid alpha(@wood, 0.55);
 }
 
-
-/* === NOTIFICATIONS === */
-
-#custom-notifications {
-	background-color: @no1;
-	color: @re1;
-	font-size: 20px;
+#taskbar button.active {
+  background-color: alpha(@emerald, 0.22);
+  border: 1px solid alpha(@emerald, 0.8);
 }
 
-#custom-notifications:hover {
-	color: @re0;
-	background-color: @re1;
+/* Launcher glyph is a font icon, size it here */
+#custom-launcher {
+  font-size: 22px;
+  padding: 6px 14px;
 }
 
-#custom-notifications.dnd-none {
-	color: @re1;
+/* Tooltips */
+tooltip {
+  background-color: transparent;
+  border: none;
 }
-
-#custom-notifications.dnd-none:hover {
-	color: @re1;
-	background-color: @re2;
-}
-
-/* === UPDATES === */
-
-#custom-updates {
-	color: @wh0;
-	font-size: 20px;
-	margin: 0 20px;
-}
-
-#custom-updates:hover {
-	background-color: @gr1;
-}
-
-
-/* === MISC === */
-
-#custom-cava {
-	color: @re0;
-	background-color: @no1;
-}
-
-#custom-wf-recorder {
-	color: @re0;
-	background-color: @no1;
-}
-
-#bluetooth {
-	color: @re0;
-	background-color: @no1;
-}
-
-#language {
-	color: @re0;
-	background-color: @no1;
-}
-
-#custom-brightness {
-	background-color: @no1;
-}
-
-#custom-brightness:hover {
-	background-color: @re1;
-}
-
-#custom-brightness.max {
-	color: @re0;
-}
-
-#custom-brightness.high {
-	color: @ye0;
-}
-
-#custom-brightness.mid {
-	color: @wh0;
-}
-
-#custom-brightness.low {
-	color: @cy0;
-}
-
-#custom-brightness.min {
-	color: @re0;
-}
-
-#tray {
-	color: @re0;
-	background-color: @no1;
-}
-
-#custom-cava:hover,
-#custom-wf-recorder:hover,
-#bluetooth:hover,
-#language:hover {
-	color: @re0;
-	background-color: @re2;
-}
-
-/* === WINDOW === */
-
-#window {
-	color: @no0;
-	background-color: @re0;
-	padding: 0 32px;
-	border: none;
+tooltip label {
+  background-color: alpha(@navy, 0.92);
+  border: 1px solid alpha(@wood, 0.75);
+  border-radius: 12px;
+  padding: 8px 10px;
+  color: @white;
 }

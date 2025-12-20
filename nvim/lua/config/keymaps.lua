@@ -7,4 +7,4 @@ vim.keymap.set("v", "<D-c>", '"+y', { desc = "Copy selection to clipboard" })
 vim.keymap.set("n", "<D-c>", '"+yy', { desc = "Copy line to clipboard" }) -- Paste from system clipboard (+)
 
 vim.keymap.set({ "n", "v" }, "<D-S-v>", '"+p', { desc = "Paste clipboard" })
-vim.keymap.set("i", "<C-S-v>", "<D-r>+", { desc = "Paste clipboard in insert mode" })
+vim.keymap.set("i", "<D-S-v>", "<D-r>+", { desc = "Paste clipboard in insert mode" })

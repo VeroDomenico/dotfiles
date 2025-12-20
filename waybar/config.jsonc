@@ -1,80 +1,35 @@
 [
-  /* BAR 1 */
   {
-    "include": "/home/sch/.config/waybar/modules.jsonc",
-    "height": 31,
+    "name": "top",
     "layer": "top",
-    "output": "HDMI-A-1",
-    "mode": "dock",
-    "exclusive": true,
-    "passtrough": false,
-    "gtk-layer-shell": true,
-    "margin-top": 0,
-    "margin-left": 0,
-    "margin-bottom": 0,
-    "margin-right": 0,
-    "on-scroll-threshold": 1,
-    "modules-left": [
-      "custom/arch",
-      "custom/arrow-left-re0",
-      "hyprland/workspaces",
-      "custom/arrow-left-no1",
-      "custom/updates"
-    ],
-    "modules-center": [
-      "custom/arrow-right-no1",
-      "clock#date",
-      "custom/arrow-right-gr0",
-      "custom/music",
-      "custom/arrow-left-gr0",
-      "clock#time",
-      "custom/arrow-left-no1"
-    ],
-    "modules-right": [
-      "custom/arrow-right-no1",
-      "network",
-      "hyprland/language",
-      "pulseaudio"
-    ]
+    "position": "top",
+    "height": 36, // raise bar height so bigger icons fit
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "network", "pulseaudio", "clock"],
+
+    // Bigger SYSTEM TRAY icons (Discord, Steam, etc)
+    "tray": {
+      "icon-size": 32,
+      "spacing": 10,
+    },
   },
-  /* BAR 2 */
   {
-    "include": "/home/sch/.config/waybar/modules.jsonc",
-    "height": 31,
+    "name": "bottom",
     "layer": "top",
-    "output": "DP-2",
-    "mode": "dock",
-    "exclusive": true,
-    "passtrough": false,
-    "gtk-layer-shell": true,
-    "margin-top": 0,
-    "margin-left": 0,
-    "margin-bottom": 0,
-    "margin-right": 0,
-    "on-scroll-threshold": 1,
-    "modules-left": [
-      "custom/arch",
-      "custom/arrow-left-re0",
-      "hyprland/workspaces",
-      "custom/arrow-left-no1"
-    ],
-    "modules-center": [
-      "custom/arrow-right-no1",
-      "clock#date",
-      "custom/arrow-right-re0",
-      "hyprland/window",
-      "custom/arrow-left-re0",
-      "clock#time",
-      "custom/arrow-left-no1"
-    ],
-    "modules-right": [
-      "custom/arrow-right-no1",
-      "memory",
-      "temperature#gpu",
-      "temperature#cpu",
-      "custom/brightness",
-      "custom/notifications",
-      "tray"
-    ]
-  }
+    "position": "bottom",
+    "height": 54, // raise height for dock-like icons
+
+    "modules-left": ["custom/launcher"],
+    "modules-center": ["wlr/taskbar"],
+    "modules-right": ["clock#bottom"],
+
+    // Bigger TASKBAR icons (running apps)
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 34,
+      "on-click": "activate",
+      "on-click-middle": "close",
+    },
+  },
 ]
