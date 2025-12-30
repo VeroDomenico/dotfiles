@@ -1,6 +1,11 @@
-font-family = SauceCodePro Nerd Font Mono
+font-family = SauceCodePro Nerd Font
 font-style = Regular
-font-size = 13
+font-size = 14 
 font-thicken = true
-
-theme = TokyoNight
+freetype-load-flags = hinting
+background-opacity-cells = true
+background-opacity= 0.40
+background-blur-radius=40
+background= #000000
+cursor-color = #ffffff
+theme = Catppuccin Mocha
